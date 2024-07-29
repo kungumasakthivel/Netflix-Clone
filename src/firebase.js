@@ -7,6 +7,7 @@ import {
     signOut
 } from "firebase/auth";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { toast } from "react-toastify";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -35,23 +36,26 @@ const signup = async(name, email, password) => {
             authProvider: "local",
             email 
         })
+        toast.success("Signup Successfully!")
     }catch(e){
         console.log(e);
-        alert(e);
+        toast.error(e.code.split("/")[1].split("-").join(" "));
     }
 }
 
 const login = async(email, password) => {
     try{
         await signInWithEmailAndPassword(auth, email, password);
+        toast.success("Welcome back!!!")
     }catch(e){
         console.log(e);
-        alert(e);
+        toast.error(e.code.split("/")[1].split("-").join(" "));
     }
 }
 
 const logout = () => {
     signOut(auth)
+    toast.warn('Loged Out!')
 }
 
 export {auth, db, login, signup, logout};

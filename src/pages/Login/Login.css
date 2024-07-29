@@ -87,3 +87,28 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.head-spinner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.head-spinner .spinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width:500px) {
+    .login {
+        padding: 15px 5%;
+    }
+    .login-form {
+        padding: 20px;
+        margin-top: 50px;
+    }
+}
